@@ -8,4 +8,8 @@
 
 ### Literature
 
+### Divison of Labor
+
+- Dataset preparation: Kai, Max, 
+
 ### License
