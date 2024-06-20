@@ -28,7 +28,7 @@ def extract_and_copy_ai_images(model_path, prefixes):
             shutil.copy(file_path, destination_path)
 
 def extract_and_copy_natural_images(model_path, prefixes):
-    ase_path = os.path.join(os.getcwd(), model_path)
+    base_path = os.path.join(os.getcwd(), model_path)
     image_files = []
     for prefix in prefixes:
         for root, dirs, files in os.walk(base_path):
@@ -46,4 +46,4 @@ def extract_and_copy_natural_images(model_path, prefixes):
 
 for model_path in model_paths: 
     extract_and_copy_ai_images(model_path, ai_prefixes)
-    extract_and_copy_natural_images(model_path, nature_prefixes)
+    extract_and_copy_natural_images(model_path, natural_prefixes)
