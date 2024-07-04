@@ -1,25 +1,30 @@
-Blurry images of environments like bathrooms are more common in Group A
-Blurry images of objects are present in Group A
-Traffic light imagery
-Presence of shoes in images is more likely in Group A
-Blurry images of cameras
-Humans interacting with cameras
+Images of pairs of objects (e.g., scissors and purse)
+Images with trucks are more likely to appear in Group A
+Suitcase-related items are more likely to be in images from Group A
+Images of keys and remote controls
+Blurry images of people are more frequent in Group A
+Presence of cell phones in images is more likely in Group A
 Blurry images
-Black cameras are more frequently seen in Group A
-Bathrooms in images
-Green objects are more likely to appear in blurry images in Group A
-Cameras on white backgrounds
+Blurry images
+Images with a speaker in them
+Bathroom-related images are more prevalent in Group A
+Images of trucks
 Close-ups of cameras
-Cameras on a white background
 Blurry images are more common in Group A
-Cameras next to laptops appear more in Group A
-Cameras next to a white surface
+Black cameras on white surfaces
+Images of traffic lights on top of cars
+Cameras on white surfaces
+Images of flowers
+Images with white backgrounds are frequently seen in Group A
+Pictures of cameras next to white backgrounds
 Cameras on tables
+Black cameras are more prevalent in Group A
 Black and white images
 Black and white images
-Multiple cameras in a single image are more common in Group A
-Cameras on a wooden table
-Camera lenses in focus
-Cameras on a table
-Black and white photographs are more likely to be in Group A
-Close-up shots of cameras are more prevalent in Group A
+Images of traffic lights
+Close-up shots of cameras
+Cameras placed on top of tables are common in Group A
+Cameras next to laptops
+Cameras sitting on a table
+Pictures of cameras next to laptops
+Close-up shots are more common in Group A

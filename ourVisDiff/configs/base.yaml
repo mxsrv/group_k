@@ -1,6 +1,6 @@
 project: VisDiff
-wandb: true  # whether to log to wandb
-seed: 5  # random seed
+wandb: false  # whether to log to wandb
+seed: 0  # random seed
 
 data:
   root: "../train"

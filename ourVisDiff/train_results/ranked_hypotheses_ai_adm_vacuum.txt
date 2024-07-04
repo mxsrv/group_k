@@ -1,25 +1,30 @@
-Mannequin with suitcase on a table
-Presence of bath-related items like bathtub or hair dryer
-Presence of broken or damaged objects
-Presence of both man-made and natural objects in indoor settings
-Person bending down and using a tool
-Presence of plants or flowers in a vase indoors
-Presence of indoor rooms and furniture like chairs, tables, desks
-Presence of household items like shampoo, ironing board, glasses
-Red, blue, and white hats
-Pink and white hair dryers
-Rooms with bathtubs
-White toothbrush hanging on a wall next to a window
-Blurry images of objects
-Presence of cameras or photography equipment
-Red and blue car laying on a bed
-Vending machines on tiled floors
-Cats on top of vacuum cleaners
-Green food processors on cutting boards
-People using tools
-Presence of people interacting with household items or furniture
-Silver and black vacuum cleaners on counters
-Presence of indoor activities like playing games or sitting in a room
-Vacuum cleaners with hoses attached to them
-Vacuum cleaners with hoses attached
-Presence of colorful clothing or accessories
+The presence of a person with a prosthetic leg
+Objects with broken or damaged parts
+Images with a person standing next to objects
+Close-up shots of objects
+Lack of graffiti or street art
+Variety of equipment and objects in a room
+Indoor settings with various objects
+Children interacting with machines
+Objects on furniture
+Variety of textures in the background
+Images with a low level of clarity or blurriness
+Images with multiple objects
+Variety of tools and equipment
+Objects placed on tables or floors
+Objects related to personal grooming
+A mixture of different colored objects
+More human subjects
+People engaged in various activities
+A room with remodeling or construction activities
+Indoor settings with household items
+Brightly colored plastic objects
+Presence of pets or animals indoors
+Presence of household appliances
+Presence of household items
+Neutral color tones
+Indoor scenes
+Messy or cluttered rooms
+Multiple different types of vacuum cleaners
+White or yellow vacuum cleaners
+Vacuums as the central object

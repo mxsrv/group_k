@@ -105,11 +105,11 @@ def main(config):
     print(f"Args {args}")
 
     split = "train"
-    args["data"]["root"] = "../group_k/" + split
+    args["data"]["root"] = "../" + split
 
 
     # get all folder names
-    csv_names = os.listdir('../group_k/' + split)
+    csv_names = os.listdir('../' + split)
     folder_names = []
     for csv_name in csv_names:
         folder_names.append(csv_name.split('.')[0])

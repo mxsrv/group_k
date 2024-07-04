@@ -85,7 +85,7 @@ def classify(args: Dict, test_captions: List[str], train_ai_hypotheses: List[str
         table_evaluated_hypotheses = wandb.Table(
             dataframe=pd.DataFrame(evaluated_hypotheses)
         )
-        wandb.log({"evaluated hypotheses " + group_name + " " + args["data"]["name"]: table_evaluated_hypotheses})
+        wandb.log({"evaluated hypotheses " + group_name + " " + args["data"]["name"]: table_evaluated_hypotheses}, commit=False)
     return group, score
 
 
@@ -98,6 +98,7 @@ def main(config):
     print(f"Args {args}")
 
     tryLoadCaptions = True
+    saveCaptions = True
 
     split = "test"
     args["data"]["root"] = "../" + split
@@ -121,9 +122,9 @@ def main(config):
     false_classes = []
 
     for name in folder_names:
-        #print()
-        #print()
-        #logging.info("Processing name " + name)
+        print()
+        print()
+        logging.info("Processing name " + name)
 
         args["data"]["name"] = name
         args["data"]["group1"] = "nature" + name[name.find('_'):]
@@ -151,18 +152,19 @@ def main(config):
             logging.info("Proposing captions...")
             nature_captions, ai_captions = caption(args, dataset1, dataset2)
 
-            logging.info("Saving captions...")
-            with open(split + "_results/captions_ai_" + args["data"]["name"] + ".txt", "w") as f:
-                for hypothesis in ai_captions:
-                    if hypothesis.startswith('"') and hypothesis.endswith('"'):
-                        hypothesis = hypothesis[1:-1]
-                    f.write(hypothesis + "\n")
+            if saveCaptions:
+                logging.info("Saving captions...")
+                with open(split + "_results/captions_ai_" + args["data"]["name"] + ".txt", "w") as f:
+                    for hypothesis in ai_captions:
+                        if hypothesis.startswith('"') and hypothesis.endswith('"'):
+                            hypothesis = hypothesis[1:-1]
+                        f.write(hypothesis + "\n")
 
-            with open(split + "_results/captions_nature_" + args["data"]["name"] + ".txt", "w") as f:
-                for hypothesis in nature_captions:
-                    if hypothesis.startswith('"') and hypothesis.endswith('"'):
-                        hypothesis = hypothesis[1:-1]
-                    f.write(hypothesis + "\n")
+                with open(split + "_results/captions_nature_" + args["data"]["name"] + ".txt", "w") as f:
+                    for hypothesis in nature_captions:
+                        if hypothesis.startswith('"') and hypothesis.endswith('"'):
+                            hypothesis = hypothesis[1:-1]
+                        f.write(hypothesis + "\n")
 
         logging.info("Loading training hypotheses...")        
         train_ai_hypotheses = []
@@ -193,7 +195,6 @@ def main(config):
                 correctly_classified += 1
                 correctly_ai_classified += 1
 
-        """      
         group_nature, score_nature = classify(args, nature_captions, train_ai_hypotheses, train_nature_hypotheses, "nature")
         scores_nature.append(score_nature)
         print("gt 0:", group_nature, score_nature)
@@ -203,9 +204,6 @@ def main(config):
             if group_nature == 0:
                 correctly_classified += 1
                 correctly_nature_classified += 1
-        """  
-        group_nature = -1
-        scores_nature = -1
 
         if group_ai == 0 or group_nature == 1:
             false_classes.append(name)
@@ -218,14 +216,18 @@ def main(config):
 
     print(false_classes)
                 
+    print()
     print("Correctly classified:", correctly_classified, "out of", count_classified)
     print("Correctly ai classified:", correctly_ai_classified, "out of", count_ai_classified)
     print("Correctly nature classified:", correctly_nature_classified, "out of", count_nature_classified)
     if count_classified > 0:
         print("Accuracy:", correctly_classified / count_classified)
         print("Scores ai:", np.mean(scores_ai), np.std(scores_ai), "nature:", np.mean(scores_nature), np.std(scores_nature))
+        print("ai", np.unique(scores_ai, return_counts=True))
+        print("nature", np.unique(scores_nature, return_counts=True))
 
         if args["wandb"]:
+            print()
             wandb.log({
                 "count_classified": count_classified, 
                 "count_ai_classified": count_ai_classified, 

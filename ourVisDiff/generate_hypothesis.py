@@ -93,16 +93,17 @@ def main(config):
     args = load_config(config)
     print(f"Args {args}")
 
-    split = "test"
-    args["data"]["root"] = "../group_k/" + split
+    split = "train"
+    args["data"]["root"] = "../" + split
 
     # get all folder names
-    csv_names = os.listdir('../group_k/' + split)
+    csv_names = os.listdir('../' + split)
     folder_names = []
     for csv_name in csv_names:
         folder_names.append(csv_name.split('.')[0])
 
     for name in folder_names:
+
         print()
         print()
         logging.info("Processing name " + name)
