@@ -1,5 +1,5 @@
 project: VisDiff
-wandb: false  # whether to log to wandb
+wandb: true  # whether to log to wandb
 seed: 0  # random seed
 
 data:

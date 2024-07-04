@@ -143,3 +143,6 @@ wandb/
 */test.zip
 
 /data/examples/*
+
+test_results_*
+train_results_*
