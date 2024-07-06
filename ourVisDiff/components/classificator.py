@@ -106,10 +106,11 @@ Again, output either a 1, or 0. Response:"""
         prompt = self.prompt.format(captions=test_caption_string, concepts_a=ai_hypotheses_string, concepts_b=nature_hypotheses_string)
         answer = get_llm_output(prompt, self.args["model"])
         score = self.calculate_score(answer)
+        group = self.decide_group(score)
 
         evaluated_hypotheses = [{"prompt": prompt, "score": score, "response": answer}]
 
-        return score, evaluated_hypotheses
+        return group, score, evaluated_hypotheses
 
 
 class NullEvaluator:
