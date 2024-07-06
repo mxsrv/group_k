@@ -23,11 +23,12 @@ def get_llm_output(prompt: str, model: str) -> str:
     api_base = {
         "gpt-3.5-turbo": "https://api.openai.com/v1",
         "gpt-4": "https://api.openai.com/v1",
+        "gpt-4o": "https://api.openai.com/v1",
         "vicuna": VICUNA_URL,
     }
     openai.api_base = api_base[model]
 
-    if model in ["gpt-3.5-turbo", "gpt-4"]:
+    if model in ["gpt-3.5-turbo", "gpt-4", "gpt-4o"]:
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt},
@@ -43,7 +44,7 @@ def get_llm_output(prompt: str, model: str) -> str:
 
     for _ in range(3):
         try:
-            if model in ["gpt-3.5-turbo", "gpt-4"]:
+            if model in ["gpt-3.5-turbo", "gpt-4",  "gpt-4o"]:
                 completion = openai.ChatCompletion.create(
                     model=model,
                     messages=messages,

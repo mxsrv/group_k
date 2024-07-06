@@ -116,9 +116,9 @@ def main(config):
     count_ai_classified = 0
     correctly_nature_classified = 0
     count_nature_classified = 0
-    scores_ai = []
-    scores_nature = []
 
+    scores_ai = {}
+    scores_nature = {}
     false_classes = []
 
     for name in folder_names:
@@ -186,7 +186,7 @@ def main(config):
         logging.info("Classify captions...")
 
         group_ai, score_ai = classify(args, ai_captions, train_ai_hypotheses, train_nature_hypotheses, "ai")
-        scores_ai.append(score_ai)
+        scores_ai[name] = (group_ai, score_ai)
         print("gt 1:", group_ai, score_ai)
         if group_ai != -1:
             count_classified += 1
@@ -196,7 +196,7 @@ def main(config):
                 correctly_ai_classified += 1
 
         group_nature, score_nature = classify(args, nature_captions, train_ai_hypotheses, train_nature_hypotheses, "nature")
-        scores_nature.append(score_nature)
+        scores_nature[name] = (group_nature, score_nature)
         print("gt 0:", group_nature, score_nature)
         if group_nature != -1:
             count_classified += 1
@@ -222,9 +222,28 @@ def main(config):
     print("Correctly nature classified:", correctly_nature_classified, "out of", count_nature_classified)
     if count_classified > 0:
         print("Accuracy:", correctly_classified / count_classified)
-        print("Scores ai:", np.mean(scores_ai), np.std(scores_ai), "nature:", np.mean(scores_nature), np.std(scores_nature))
-        print("ai", np.unique(scores_ai, return_counts=True))
-        print("nature", np.unique(scores_nature, return_counts=True))
+        print("Scores ai:", np.mean(list(scores_ai.values())), np.std(list(scores_ai.values())), "nature:", np.mean(list(scores_nature.values())), np.std(list(scores_nature.values())))
+        print("ai", np.unique(list(scores_ai.values()), return_counts=True))
+        print("nature", np.unique(list(scores_nature.values()), return_counts=True))
+
+        model_accuracy = {}
+        for model_name in ["adm", "biggan", "stablediffusion"]:
+            model_count_classified = 0
+            model_correctly_classified = 0
+            for key in scores_ai.keys():
+                if model_name in key:
+                    model_count_classified += 1
+                    if scores_ai[key][0] == 1:
+                        model_correctly_classified += 1
+            for key in scores_nature.keys():
+                if model_name in key:
+                    model_count_classified += 1
+                    if scores_nature[key][0] == 0:
+                        model_correctly_classified += 1
+            if model_count_classified > 0:
+                model_accuracy[model_name] = model_correctly_classified / model_count_classified
+
+        print(model_accuracy)
 
         if args["wandb"]:
             print()
@@ -238,6 +257,9 @@ def main(config):
                 "accuracy": correctly_classified / count_classified,
                 "accuracy_ai": correctly_ai_classified / count_ai_classified,
                 "accuracy_nature": correctly_nature_classified / count_nature_classified,
+                "adm_accuracy": model_accuracy["adm"],
+                "biggan_accuracy": model_accuracy["biggan"],
+                "stablediffusion_accuracy": model_accuracy["stablediffusion"],
                 })
 
 if __name__ == "__main__":
