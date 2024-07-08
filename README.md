@@ -1,15 +1,32 @@
 # Multimodal AI Project Group K
-## Popularization Comparison of Real and Generated Image Sets
+## Detecting Fake Images through Semantic Analysis
 
-### Architecture
+In this repository we describe the steps to reproduce our approach for detecting fake images through semantic analysis.
+In the test and train folders there are csv files enumerating the images of the respective splits.
+The respective dataset was not uploaded to the git but can be uploaded elsewhere if requested or be found in the lightning-ai studio in the subset_evaluation folder.
 
+In the folder ourVisDiff is our adaptation of the https://github.com/Understanding-Visual-Datasets/VisDiff repository to distinguish fake images.
+In the subfolder train_results are the generated and ranked image hypotheses of the trainset, our "trained model".
+In the subfolder test_results are buffered captions of the testset so that BLIP doesnt need to be used at every test run.
 
-### Approach
+Valid keys for gpt/openai (and wandb) need to be used to reproduce our results.
 
-### Literature
+### Training
+For retraining first new hypotheses need to be generated. Therefore BLIP and generate_hypothesis.py needs to be started with the following commands 
+```bash
+python serve/vlm_server_blip.py 
+python generate_hypothesis.py --config configs/base.yaml
+```
+Next the hypotheses needs to be ranked using CLIP and rank_hypotheses with
+```bash
+python serve/clip_server.py 
+python rank_hypothesis.py --config configs/base.yaml
+```
+Those models can't be started simultaneously on one gpu with max 24GB VRAM, thats why the script is splitted as it is.
 
-### Divison of Labor
-
-- Dataset preparation: Kai, Max, 
-
-### License
+### Testing
+For testing the test.py script needs to be run with the BLIP model.
+```bash
+python serve/vlm_server_blip.py 
+python test.py --config configs/base.yaml
+```
