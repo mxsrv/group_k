@@ -5,7 +5,11 @@ In this repository we describe the steps to reproduce our approach for detecting
 In the test and train folders there are csv files enumerating the images of the respective splits.
 The respective dataset was not uploaded to the git but can be uploaded elsewhere if requested or be found in the lightning-ai studio in the subset_evaluation folder.
 
-In the folder ourVisDiff is our adaptation of the https://github.com/Understanding-Visual-Datasets/VisDiff repository to distinguish fake images.
+In the folder ourApproach lies our adaptation of the https://github.com/Understanding-Visual-Datasets/VisDiff repository to distinguish fake images.
+We created the following files: components/captioner.py, components/classificator.py, generate_hypothesis.py, rank_hypothesis.py, test.py.
+For preprocessing the dataset and creating subsets, we use csv_generator.py and data_subset_extraction.py.
+We decided to keep original VisDiff files inside the project to be able to try out different combinations of proposer and ranker.
+
 In the subfolder train_results are the generated and ranked image hypotheses of the trainset, our "trained model".
 In the subfolder test_results are buffered captions of the testset so that BLIP doesnt need to be used at every test run.
 
