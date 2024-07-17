@@ -25,7 +25,7 @@ python rank_hypothesis.py --config configs/base.yaml
 Those models can't be started simultaneously on one gpu with max 24GB VRAM, thats why the script is splitted as it is.
 
 ### Testing
-For testing the test.py script needs to be run with the BLIP model.
+For running interference on a test image set the test.py script needs to be run with the BLIP model.
 ```bash
 python serve/vlm_server_blip.py 
 python test.py --config configs/base.yaml
