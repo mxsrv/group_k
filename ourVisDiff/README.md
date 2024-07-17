@@ -1,3 +1,4 @@
+# THIS IS THE FORMER VISDIFF README. TO REPODUCE OUR APPROACH, USE THE README IN THE ROOT FOLDER
 # VisDiff: Describing Differences in Image Sets with Natural Language
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
