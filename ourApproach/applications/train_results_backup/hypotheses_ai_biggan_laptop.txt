@@ -1,0 +1,30 @@
+Blurry images
+Dark room settings
+Laptop on various surfaces
+Black and white images
+Presence of skateboards
+Beds with objects on them
+Toilets in the dark
+Signs on the side of a road
+Chairs in different rooms
+High variability in laptop placements
+Blurry images are more prevalent in Group A 
+Dark room settings are more common in Group A 
+Presence of bathroom-related objects is more likely in Group A 
+Images of laptops on tables are more frequent in Group A 
+Close-up shots of laptops are found more in Group A 
+White surfaces are more common in images from Group A 
+Toothbrushes appearing in images is more likely in Group A 
+TVs on tables are more often seen in Group A 
+Desks with laptops on them are more prevalent in Group A 
+Computer screens visible in images are more common in Group A
+Blurry images
+Black and white photos
+Images of laptops on tables
+Images of rooms with TVs
+Images of items on white surfaces
+Images of dark rooms
+Images of laptops with no people present
+Images of single objects like a tennis racket or skateboard
+Images of items in a close-up view
+Images of items in a non-office setting
