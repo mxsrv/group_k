@@ -32,7 +32,7 @@ Again, output either a 2, 1, or 0. Response:"""
     def evaluate(
         self, hypotheses: List[str], gt_a: str, gt_b: str
     ) -> Tuple[Dict, List[Dict]]:
-        # varify that the hypothesis is true or false
+        # verify that the hypothesis is true or false
         scores = []
         evaluated_hypotheses = []
         for hypothesis in tqdm(hypotheses[: self.args["n_hypotheses"]]):
@@ -79,7 +79,7 @@ Again, output either a 2, 1, or 0. Response:"""
     def evaluate(
         self, hypotheses: List[str], gt_a: str, gt_b: str
     ) -> Tuple[Dict, List[Dict]]:
-        # varify that the hypothesis is true or false
+        # verify that the hypothesis is true or false
         scores = []
         evaluated_hypotheses = []
         for hypothesis in tqdm(hypotheses[: self.args["n_hypotheses"]]):
