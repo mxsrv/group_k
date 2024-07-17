@@ -53,7 +53,7 @@ Again, output either a 1, or 0. Response:"""
     def evaluate_seperately(
         self, args: Dict, test_captions: List[str], train_ai_hypotheses: List[str], train_nature_hypotheses: List[str]
     ) -> Tuple[Dict, List[Dict]]:
-        # varify that the hypothesis is true or false
+        # verify that the hypothesis is true or false
         
         ai_hypotheses_string = ""
         for i, caption in enumerate(train_ai_hypotheses):
@@ -87,7 +87,7 @@ Again, output either a 1, or 0. Response:"""
     def evaluate_combined(
         self, args: Dict, test_captions: List[str], train_ai_hypotheses: List[str], train_nature_hypotheses: List[str]
     ) -> Tuple[Dict, List[Dict]]:
-        # varify that the hypothesis is true or false
+        # verify that the hypothesis is true or false
         test_caption_string = ""
         for i, caption in enumerate(test_captions):
             if i < self.args["n_captions"]:
