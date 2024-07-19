@@ -37,7 +37,6 @@ MANIFEST
 
 cache/
 cache_backup/
-serve/global_vars.py
 
 # Installer logs
 pip-log.txt
