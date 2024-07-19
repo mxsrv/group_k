@@ -103,13 +103,13 @@ def main(config):
     split = "test"
     args["data"]["root"] = "../" + split
 
-
     # get all folder names
     csv_names = os.listdir('../' + split)
     folder_names = []
     for csv_name in csv_names:
         folder_names.append(csv_name.split('.')[0])
 
+    #prepare classwise classification-accuracy scores
     count_classified = 0
     correctly_classified = 0
     correctly_ai_classified = 0
@@ -214,6 +214,7 @@ def main(config):
                 "nature_score" : score_nature, 
                 })
 
+    # print classification results
     print(false_classes)
                 
     print()
