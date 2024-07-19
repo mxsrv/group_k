@@ -34,3 +34,4 @@ For running interference on a test image set the test.py script needs to be run 
 python serve/vlm_server_blip.py 
 python test.py --config configs/base.yaml
 ```
+
