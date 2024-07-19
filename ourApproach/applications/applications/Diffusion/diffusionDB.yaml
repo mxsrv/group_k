@@ -1,4 +1,0 @@
-data:
-  name: diffusionDB
-  group1: stabilityai/stable-diffusion-2-1
-  group2: CompVis/stable-diffusion-v1-4
